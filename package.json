@@ -1,0 +1,54 @@
+{
+  "name": "smwevent-layouts",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "run-p dev:*",
+    "dev:tsc": "tsc -b src/browser src/extension -w --preserveWatchOutput",
+    "dev:vite": "vite",
+    "dev:nodecg": "node --enable-source-maps ../..",
+    "generate-schema-types": "trash src/types/schemas && nodecg schema-types"
+  },
+  "nodecg": {
+    "compatibleRange": "^2.0.0",
+    "dashboardPanels": [
+      {
+        "name": "example",
+        "title": "Example",
+        "width": 2,
+        "file": "example.html",
+        "workspace": "Example",
+        "headerColor": "#525F78"
+      }
+    ],
+    "graphics": [
+      {
+        "file": "example.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      }
+    ]
+  },
+  "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mdi/react": "^1.6.1",
+    "@mui/material": "^6.1.1",
+    "@nodecg/react-hooks": "^1.0.3",
+    "@vitejs/plugin-react": "^4.3.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "rollup-plugin-esbuild": "^6.1.1",
+    "rollup-plugin-node-externals": "^7.1.3",
+    "trash-cli": "^6.0.0",
+    "ts-nodecg": "^0.3.1",
+    "typescript": "^5.6.2",
+    "vite": "^5.4.7"
+  },
+  "devDependencies": {
+    "@nodecg/types": "^2.1.12",
+    "@types/react": "^18.3.8",
+    "@types/react-dom": "^18.3.0",
+    "vite-plugin-nodecg": "^2.1.0"
+  }
+}
