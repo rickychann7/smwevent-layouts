@@ -1,6 +1,7 @@
 import type NodeCG from '@nodecg/types';
-import { test } from './example';
+import { player } from './player';
 
 export default (nodecg: NodeCG.ServerAPI) => {
-	test(nodecg);
-}
+  nodecg.log.info('NodeCG server is started!');
+  player(nodecg);
+};

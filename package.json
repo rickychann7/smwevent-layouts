@@ -12,11 +12,11 @@
     "compatibleRange": "^2.0.0",
     "dashboardPanels": [
       {
-        "name": "example",
-        "title": "Example",
+        "name": "player",
+        "title": "プレイヤー名",
         "width": 2,
-        "file": "example.html",
-        "workspace": "Example",
+        "file": "playername.html",
+        "workspace": "MAIN DASHBOARD",
         "headerColor": "#525F78"
       }
     ],
@@ -26,16 +26,24 @@
         "width": 1920,
         "height": 1080,
         "singleInstance": false
+      },
+      {
+        "file": "race-2way.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
       }
     ]
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
+    "@fontsource-variable/m-plus-1": "^5.1.0",
     "@mdi/react": "^1.6.1",
     "@mui/material": "^6.1.1",
     "@nodecg/react-hooks": "^1.0.3",
     "@vitejs/plugin-react": "^4.3.1",
+    "papaparse": "^5.4.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "rollup-plugin-esbuild": "^6.1.1",
@@ -47,6 +55,7 @@
   },
   "devDependencies": {
     "@nodecg/types": "^2.1.12",
+    "@types/papaparse": "^5.3.14",
     "@types/react": "^18.3.8",
     "@types/react-dom": "^18.3.0",
     "vite-plugin-nodecg": "^2.1.0"
