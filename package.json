@@ -6,6 +6,7 @@
     "dev:tsc": "tsc -b src/browser src/extension -w --preserveWatchOutput",
     "dev:vite": "vite",
     "dev:nodecg": "node --enable-source-maps ../..",
+    "build": "vite build",
     "generate-schema-types": "trash src/types/schemas && nodecg schema-types"
   },
   "nodecg": {
@@ -14,21 +15,43 @@
       {
         "name": "player",
         "title": "プレイヤー名",
-        "width": 2,
-        "file": "playername.html",
+        "width": 3,
+        "file": "player.html",
+        "workspace": "MAIN DASHBOARD",
+        "headerColor": "#525F78"
+      },
+      {
+        "name": "announce",
+        "title": "情報表示",
+        "width": 3,
+        "file": "announce.html",
+        "workspace": "MAIN DASHBOARD",
+        "headerColor": "#525F78"
+      },
+      {
+        "name": "nextrun",
+        "title": "次のイベント名",
+        "width": 3,
+        "file": "nextrun.html",
         "workspace": "MAIN DASHBOARD",
         "headerColor": "#525F78"
       }
     ],
     "graphics": [
       {
-        "file": "example.html",
+        "file": "16x9_2.html",
         "width": 1920,
         "height": 1080,
         "singleInstance": false
       },
       {
-        "file": "race-2way.html",
+        "file": "16x9_3.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "16x9_4.html",
         "width": 1920,
         "height": 1080,
         "singleInstance": false

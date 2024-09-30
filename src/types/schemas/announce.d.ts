@@ -5,10 +5,7 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface ExampleReplicant {
-	text: string;
-	/**
-	 * Age in years
-	 */
-	age: number;
-}
+/**
+ * 自由記入欄
+ */
+export type Announce = string[];

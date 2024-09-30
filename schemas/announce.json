@@ -1,0 +1,9 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items": {
+    "type": "string"
+  },
+  "description": "自由記入欄",
+  "default": ["default input", "osirase 2"]
+}

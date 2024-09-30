@@ -5,4 +5,7 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type Player = string[];
+/**
+ * 次のイベント名
+ */
+export type Nextrun = string;

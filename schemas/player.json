@@ -1,21 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "type": "object",
-  "properties": {
-    "name": {
-      "description": "プレイヤーの名前",
-      "type": "array",
-      "items": { "type": "string" }
-    },
-    "racer": {
-      "description": "レース人数",
-      "type": "number",
-      "minimum": 2
-    }
-  },
-  "required": ["name", "racer"],
-  "default": {
-    "name": [],
-    "racer": 2
-  }
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "type": "array",
+  "items": { "type": "string" },
+  "default": []
 }
