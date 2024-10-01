@@ -3,7 +3,8 @@ import React from 'react';
 import { css } from '@emotion/react';
 import { globalStyle } from '../styles/global';
 import { useReplicant } from '@nodecg/react-hooks';
-import { Player, ViewSettings } from '../../../types/schemas';
+import { Player } from '../../../types/schemas';
+import { ViewSettings } from '../../../types/viewsettings';
 
 interface Nameplate {
   index: number;

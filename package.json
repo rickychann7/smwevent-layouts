@@ -29,10 +29,10 @@
         "headerColor": "#525F78"
       },
       {
-        "name": "nextrun",
-        "title": "次のイベント名",
+        "name": "event",
+        "title": "カテゴリ＆イベント名管理",
         "width": 3,
-        "file": "nextrun.html",
+        "file": "event.html",
         "workspace": "MAIN DASHBOARD",
         "headerColor": "#525F78"
       },

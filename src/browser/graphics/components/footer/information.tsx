@@ -41,14 +41,14 @@ export const InformationFader = () => {
       if (announce) {
         setInfoIndex((prevIndex) => (prevIndex + 1) % announce.length);
       }
-    }, 3000);
+    }, 0);
     return () => clearInterval(interval);
   }, []);
 
   if (announce) {
     return (
       <TransitionGroup>
-        <CSSTransition key={infoIndex} timeout={500} classNames="fade">
+        <CSSTransition key={infoIndex} timeout={0} classNames="fade">
           <div css={[fadeContainerStyle, fadeStyles]}>{announce}</div>
         </CSSTransition>
       </TransitionGroup>

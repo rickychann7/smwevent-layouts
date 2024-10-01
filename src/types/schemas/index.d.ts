@@ -2,10 +2,8 @@
 // @ts-ignore
 export * from './announce';
 // @ts-ignore
-export * from './nextrun';
+export * from './event';
 // @ts-ignore
 export * from './player';
 // @ts-ignore
 export * from './timer';
-
-export * from '../viewsettings';

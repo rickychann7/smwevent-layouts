@@ -5,7 +5,4 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-/**
- * 次のイベント名
- */
-export type Nextrun = string;
+export type Event = string[];
