@@ -19,17 +19,18 @@ const App: React.FC = () => {
   return (
     <ThemeProvider theme={theme}>
       <div
-        css={{
+        style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           width: 'fit-content',
           backgroundColor: '#202020',
           color: '#FFFFFF',
-          padding: '20px',
-          borderRadius: '10px',
+          padding: '30px',
+          borderRadius: '5px',
+          margin: '10px',
         }}>
-        <div css={{ display: 'flex', fontSize: '48px', fontFamily: 'monospace', fontWeight: 'bold' }}>
+        <div style={{ display: 'flex', fontSize: '48px', fontFamily: 'monospace', fontWeight: 'bold' }}>
           {formattedTime}
         </div>
       </div>
@@ -56,6 +57,14 @@ const App: React.FC = () => {
         style={{ marginRight: 11 }}
         onClick={() => nodecg.sendMessage('resetTimer')}>
         Reset
+      </Button>
+      <Button
+        variant="contained"
+        size="large"
+        color="info"
+        style={{ marginRight: 11 }}
+        onClick={() => nodecg.sendMessage('currentTimerState')}>
+        Log
       </Button>
     </ThemeProvider>
   );

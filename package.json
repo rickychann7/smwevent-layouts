@@ -22,7 +22,7 @@
       },
       {
         "name": "announce",
-        "title": "情報表示",
+        "title": "フッター情報",
         "width": 3,
         "file": "announce.html",
         "workspace": "MAIN DASHBOARD",
@@ -76,6 +76,7 @@
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@fontsource-variable/m-plus-1": "^5.1.0",
+    "@fontsource-variable/rubik": "^5.1.0",
     "@mdi/react": "^1.6.1",
     "@mui/material": "^6.1.1",
     "@nodecg/react-hooks": "^1.0.3",

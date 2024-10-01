@@ -18,6 +18,7 @@ export const timer = (nodecg: NodeCG.ServerAPI) => {
       elapsedTime = new Date().getTime() - startTime!.getTime() + pausedTime;
       updateDisplay(elapsedTime);
     }, 1000);
+    timer.value.state = 'Running';
   }
 
   function stopTimer(): void {
@@ -25,6 +26,7 @@ export const timer = (nodecg: NodeCG.ServerAPI) => {
       clearInterval(timerInterval);
       timerInterval = null;
       pausedTime = elapsedTime;
+      timer.value.state = 'Finished';
     }
   }
 
@@ -33,6 +35,7 @@ export const timer = (nodecg: NodeCG.ServerAPI) => {
     elapsedTime = 0;
     pausedTime = 0;
     updateDisplay(elapsedTime);
+    timer.value.state = 'Stopped';
   }
 
   function updateDisplay(time: number) {
@@ -49,5 +52,9 @@ export const timer = (nodecg: NodeCG.ServerAPI) => {
 
   nodecg.listenFor('resetTimer', () => {
     resetTimer();
+  });
+
+  nodecg.listenFor('currentTimerState', () => {
+    nodecg.log.info('TimerState: ', timer.value.state);
   });
 };

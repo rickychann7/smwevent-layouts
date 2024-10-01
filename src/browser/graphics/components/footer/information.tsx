@@ -49,7 +49,7 @@ export const InformationFader = () => {
     return (
       <TransitionGroup>
         <CSSTransition key={infoIndex} timeout={500} classNames="fade">
-          <div css={[fadeContainerStyle, fadeStyles]}>{announce[infoIndex]}</div>
+          <div css={[fadeContainerStyle, fadeStyles]}>{announce}</div>
         </CSSTransition>
       </TransitionGroup>
     );

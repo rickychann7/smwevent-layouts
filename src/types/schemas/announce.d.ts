@@ -8,4 +8,4 @@
 /**
  * 自由記入欄
  */
-export type Announce = string[];
+export type Announce = string;

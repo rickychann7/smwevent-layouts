@@ -6,6 +6,12 @@
       "type": "number",
       "default": 0
     },
+    "finishTime": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
     "state": {
       "enum": ["Finished", "Running", "Stopped"],
       "type": "string",

@@ -7,3 +7,5 @@ export * from './nextrun';
 export * from './player';
 // @ts-ignore
 export * from './timer';
+
+export * from '../viewsettings';

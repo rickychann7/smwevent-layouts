@@ -13,7 +13,6 @@ const theme = createTheme({
 const App: React.FC = () => {
   const [announce, setAnnounce] = useReplicant<Announce>('announce');
   const [inputText, setInputText] = useState<string>('');
-  const [textArray, setTextArray] = useState<string[]>(['']);
 
   return (
     <ThemeProvider theme={theme}>
@@ -30,16 +29,15 @@ const App: React.FC = () => {
         <Box sx={{ display: 'flex', gap: 1 }}>
           <Button
             onClick={() => {
-              setTextArray((prevArray) => [...prevArray, inputText]);
-              setAnnounce(textArray);
+              setAnnounce(inputText);
               nodecg.sendMessage('updateAnnounce');
             }}
             variant="contained">
             追加
           </Button>
         </Box>
-        入力中のテキスト: {inputText} <br></br>
-        Replicantテキスト: {announce}
+        <h3>表示中</h3>
+        {announce}
       </div>
     </ThemeProvider>
   );

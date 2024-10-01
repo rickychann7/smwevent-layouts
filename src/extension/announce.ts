@@ -6,7 +6,7 @@ export const announce = (nodecg: NodeCG.ServerAPI) => {
 
   nodecg.listenFor('updateAnnounce', () => {
     setTimeout(function () {
-      nodecg.log.info('情報更新: ', announce.value, announce.value.length);
+      nodecg.log.info('情報更新: ', announce.value);
     }, 10);
   });
 };

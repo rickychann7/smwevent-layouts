@@ -6,8 +6,7 @@ interface ViewPortProps {
   firstSlotPosition: { x: number; y: number };
   slotSize: { width: number; height: number };
   margin: { x: number; y: number };
-  customPos?: { x: number; y: number };
-  debug?: boolean;
+  customPos?: { x: number | undefined; y: number | undefined };
 }
 
 export const ViewCanvas: React.FC<ViewPortProps> = ({ slotNumber, firstSlotPosition, slotSize, margin, customPos }) => {
@@ -24,7 +23,10 @@ export const ViewCanvas: React.FC<ViewPortProps> = ({ slotNumber, firstSlotPosit
     bg.src = bgImg;
 
     bg.onload = () => {
-      let currentPos = { x: firstSlotPosition.x, y: firstSlotPosition.y };
+      let currentPos = {
+        x: customPos?.x ?? firstSlotPosition.x,
+        y: firstSlotPosition.y,
+      };
 
       ctx.drawImage(bg, 0, 0, 1920, 1080);
       ctx.globalCompositeOperation = 'xor';
@@ -33,9 +35,9 @@ export const ViewCanvas: React.FC<ViewPortProps> = ({ slotNumber, firstSlotPosit
         ctx.fillStyle = 'black';
         ctx.fillRect(currentPos.x, currentPos.y, slotSize.width, slotSize.height);
 
-        currentPos.x += customPos?.x ?? slotSize.width + margin.x;
+        currentPos.x += slotSize.width + margin.x;
 
-        if (currentPos.x + slotSize.width + margin.x > 1920) {
+        if (currentPos.x + slotSize.width > 1920) {
           currentPos.x = firstSlotPosition.x;
           currentPos.y += slotSize.height + margin.y;
         }
@@ -43,7 +45,7 @@ export const ViewCanvas: React.FC<ViewPortProps> = ({ slotNumber, firstSlotPosit
 
       ctx.globalCompositeOperation = 'source-over';
     };
-  });
+  }, [slotNumber, firstSlotPosition, slotSize, margin, customPos]);
 
   return (
     <div>
