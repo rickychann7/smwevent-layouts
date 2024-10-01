@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "raw": {
+      "type": "number",
+      "default": 0
+    },
+    "state": {
+      "enum": ["Finished", "Running", "Stopped"],
+      "type": "string",
+      "default": "Stopped"
+    }
+  },
+  "additionalProperties": false,
+  "required": ["state", "raw"]
+}

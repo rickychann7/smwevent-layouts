@@ -34,6 +34,7 @@ const App = () => {
             variant="contained">
             更新
           </Button>
+          次のイベント: {nextRun}
         </Box>
       </ThemeProvider>
     </>

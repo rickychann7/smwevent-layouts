@@ -10,7 +10,7 @@ const theme = createTheme({
   },
 });
 
-export const App: React.FC = () => {
+const App: React.FC = () => {
   const [announce, setAnnounce] = useReplicant<Announce>('announce');
   const [inputText, setInputText] = useState<string>('');
   const [textArray, setTextArray] = useState<string[]>(['']);

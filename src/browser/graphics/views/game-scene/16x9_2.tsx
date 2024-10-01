@@ -1,6 +1,7 @@
 import { render } from '../../../render';
 import { ViewCanvas } from '../../components/canvas';
 import { Footer } from '../../components/footer/index';
+import { MainTimer } from '../../components/timer';
 import { Nameplate } from '../../components/nameplate';
 import { ViewSettings } from '../../components/nameplate';
 
@@ -24,6 +25,7 @@ const App: React.FC = () => {
       />
       <Nameplate index={0} style={viewSettings}></Nameplate>
       <Nameplate index={1} style={viewSettings}></Nameplate>
+      <MainTimer></MainTimer>
       <Footer></Footer>
     </div>
   );

@@ -5,3 +5,5 @@ export * from './announce';
 export * from './nextrun';
 // @ts-ignore
 export * from './player';
+// @ts-ignore
+export * from './timer';
