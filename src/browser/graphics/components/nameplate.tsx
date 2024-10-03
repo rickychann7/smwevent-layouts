@@ -1,22 +1,22 @@
 /** @jsxImportSource @emotion/react */
-import React from 'react';
 import { css } from '@emotion/react';
 import { globalStyle } from '../styles/global';
 import { useReplicant } from '@nodecg/react-hooks';
 import { Player } from '../../../types/schemas';
 import { ViewSettings } from '../../../types/viewsettings';
 
-interface Nameplate {
+export const Nameplate = (props: {
   index: number;
   view: ViewSettings;
   position: { x: number; y: number };
-}
-
-export const Nameplate: React.FC<Nameplate> = ({ view, index, position }) => {
+  customHeight?: number;
+  mainView?: { width: number; height: number; y: number; x: number };
+  customFontSize?: number;
+}) => {
   const [player] = useReplicant<Player>('player');
 
   const nameplateContainer = css`
-    font-size: 35px;
+    font-size: ${props.customFontSize ?? 2.2}em;
     font-weight: 800;
 
     background-color: #00000058;
@@ -32,27 +32,27 @@ export const Nameplate: React.FC<Nameplate> = ({ view, index, position }) => {
     border-bottom-right-radius: 15px;
 
     position: absolute;
-    width: ${view.width}px;
-    height: 70px;
-    top: ${position.y}px;
-    left: ${position.x}px;
-  `;
-
-  const nameplateStyle = css`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 5px;
-    padding-left: 20px;
-    padding-right: 10px;
-    padding-bottom: 5px;
+    width: ${props.mainView?.width ?? props.view.width}px;
+    height: ${props.mainView?.height ?? props.customHeight ?? '70'}px;
+    top: ${props.mainView?.y ?? props.position.y}px;
+    left: ${props.mainView?.x ?? props.position.x}px;
   `;
 
   if (player != undefined) {
     return (
       <div css={[globalStyle, nameplateContainer]}>
-        <div css={[nameplateStyle]}>
-          <span>{player[index]}</span>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            paddingTop: 5,
+            paddingLeft: 20,
+            paddingRight: 10,
+            paddingBottom: 5,
+          }}>
+          <div>{player[props.index]}</div>
+          <div style={{ color: '#ffd036' }}>0:00:00</div>
         </div>
       </div>
     );

@@ -39,7 +39,7 @@
       {
         "name": "timer",
         "title": "タイマー",
-        "width": 3,
+        "width": 4,
         "file": "timer.html",
         "workspace": "MAIN DASHBOARD",
         "headerColor": "#525F78"
@@ -69,6 +69,36 @@
         "width": 1920,
         "height": 1080,
         "singleInstance": false
+      },
+      {
+        "file": "16x9_5_1.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "16x9_5_2.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "16x9_5_3.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "16x9_5_4.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "16x9_5_5.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
       }
     ]
   },
@@ -78,6 +108,7 @@
     "@fontsource-variable/m-plus-1": "^5.1.0",
     "@fontsource-variable/rubik": "^5.1.0",
     "@mdi/react": "^1.6.1",
+    "@mui/icons-material": "^6.1.2",
     "@mui/material": "^6.1.1",
     "@nodecg/react-hooks": "^1.0.3",
     "@vitejs/plugin-react": "^4.3.1",

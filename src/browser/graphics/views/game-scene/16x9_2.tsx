@@ -43,11 +43,20 @@ const App: React.FC = () => {
             border: '4px solid #fff',
             borderRadius: 15,
           }}></Box>
-        <Logo style={{ position: 'absolute', transform: 'scale(0.5)', top: 850, left: 1275 }}></Logo>
+        <Logo
+          style={{
+            position: 'absolute',
+            transform: 'scale(0.5)',
+            top: 850,
+            left: 1275,
+          }}></Logo>
         <Nameplate
           index={0}
           view={viewSettings}
-          position={{ x: viewSettings.initPos.x, y: viewSettings.initPos.y + viewSettings.height }}></Nameplate>
+          position={{
+            x: viewSettings.initPos.x,
+            y: viewSettings.initPos.y + viewSettings.height,
+          }}></Nameplate>
         <Nameplate
           index={1}
           view={viewSettings}
@@ -56,7 +65,15 @@ const App: React.FC = () => {
             y: viewSettings.initPos.y + viewSettings.height,
           }}></Nameplate>
         <MainTimer
-          style={{ position: 'absolute', top: 820, left: 1330, width: 415, padding: 20, borderTop: 'solid' }}
+          style={{
+            position: 'absolute',
+            top: 820,
+            left: 1330,
+            width: 415,
+            padding: 20,
+            borderTop: 'solid',
+            fontSize: '108px',
+          }}
         />
         <div>
           <Footer />

@@ -1,18 +1,18 @@
-import { render } from '../../../render';
-import { ViewCanvas } from '../../components/view-canvas';
-import { Footer } from '../../components/footer/index';
-import { Nameplate } from '../../components/nameplate';
-import { ViewSettings } from '../../../../types/viewsettings';
-import { MainTimer } from '../../components/timer';
-import { Logo } from '../../components/logo';
-import { Box } from '../../components/box';
+import { render } from '../../../../render';
+import { ViewCanvas } from '../../../components/view-canvas';
+import { Footer } from '../../../components/footer/index';
+import { Nameplate } from '../../../components/nameplate';
+import { ViewSettings } from '../../../../../types/viewsettings';
+import { MainTimer } from '../../../components/timer';
+import { Logo } from '../../../components/logo';
+import { Box } from '../../../components/box';
 
 const viewSettings: ViewSettings = {
-  player: 4,
-  width: 715,
-  height: 402,
-  initPos: { x: 440, y: 25 },
-  margin: { x: 25, y: 95 },
+  player: 5,
+  width: 430,
+  height: 234,
+  initPos: { x: 1010, y: 35 },
+  margin: { x: 25, y: 75 },
 };
 
 const App: React.FC = () => {
@@ -27,7 +27,9 @@ const App: React.FC = () => {
             y: viewSettings.initPos.y,
           }}
           margin={{ x: viewSettings.margin.x, y: viewSettings.margin.y }}
+          focus={true}
         />
+        <Logo style={{ position: 'absolute', transform: 'scale(0.5)', top: 850, left: 1275 }}></Logo>
         <Box
           style={{
             padding: 20,
@@ -35,50 +37,65 @@ const App: React.FC = () => {
             fontWeight: 900,
             color: 'white',
             fontSize: 48,
-            width: 340,
-            height: 480,
+            width: 1080,
+            height: 275,
             position: 'absolute',
-            top: 200,
-            left: 25,
+            top: 680,
+            left: 100,
             backgroundColor: '#00000058',
             border: '4px solid #fff',
             borderRadius: 15,
           }}></Box>
-        <Logo style={{ position: 'absolute', transform: 'scale(0.48)', top: 0, left: -200 }}></Logo>
+        <Nameplate
+          index={4}
+          view={viewSettings}
+          position={{ x: viewSettings.initPos.x, y: viewSettings.initPos.y + viewSettings.height }}
+          mainView={{ width: 973, height: 70, x: 15, y: 578 }}></Nameplate>
         <Nameplate
           index={0}
           view={viewSettings}
-          position={{ x: viewSettings.initPos.x, y: viewSettings.initPos.y + viewSettings.height }}></Nameplate>
+          position={{
+            x: viewSettings.initPos.x,
+            y: viewSettings.initPos.y + viewSettings.height,
+          }}
+          customHeight={60}
+          customFontSize={1.7}></Nameplate>
         <Nameplate
           index={1}
           view={viewSettings}
           position={{
             x: viewSettings.initPos.x + viewSettings.width + viewSettings.margin.x,
             y: viewSettings.initPos.y + viewSettings.height,
-          }}></Nameplate>
+          }}
+          customHeight={60}
+          customFontSize={1.7}></Nameplate>
         <Nameplate
           index={2}
           view={viewSettings}
           position={{
             x: viewSettings.initPos.x,
             y: viewSettings.initPos.y + viewSettings.height * 2 + viewSettings.margin.y,
-          }}></Nameplate>
+          }}
+          customHeight={60}
+          customFontSize={1.7}></Nameplate>
         <Nameplate
           index={3}
           view={viewSettings}
           position={{
             x: viewSettings.initPos.x + viewSettings.width + viewSettings.margin.x,
             y: viewSettings.initPos.y + viewSettings.height * 2 + viewSettings.margin.y,
-          }}></Nameplate>
+          }}
+          customHeight={60}
+          customFontSize={1.7}></Nameplate>
         <MainTimer
           style={{
             position: 'absolute',
-            top: 875,
-            left: 35,
-            width: 325,
+            top: 820,
+            left: 1330,
+            width: 415,
             padding: 20,
             borderTop: 'solid',
-            fontSize: 84,
+            fontSize: '108px',
           }}
         />
         <div>

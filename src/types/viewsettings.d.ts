@@ -14,4 +14,5 @@ export type ViewSettings = {
     x: number;
     y: number;
   };
+  focus?: boolean;
 };

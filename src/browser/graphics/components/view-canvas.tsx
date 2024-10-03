@@ -7,9 +7,17 @@ interface ViewPortProps {
   slotSize: { width: number; height: number };
   margin: { x: number; y: number };
   customPos?: { x: number | undefined; y: number | undefined };
+  focus?: boolean;
 }
 
-export const ViewCanvas: React.FC<ViewPortProps> = ({ slotNumber, firstSlotPosition, slotSize, margin, customPos }) => {
+export const ViewCanvas: React.FC<ViewPortProps> = ({
+  slotNumber,
+  firstSlotPosition,
+  slotSize,
+  margin,
+  customPos,
+  focus,
+}) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -30,16 +38,31 @@ export const ViewCanvas: React.FC<ViewPortProps> = ({ slotNumber, firstSlotPosit
 
       ctx.drawImage(bg, 0, 0, 1920, 1080);
       ctx.globalCompositeOperation = 'xor';
+      ctx.fillStyle = 'black';
 
-      for (let i = 0; i < slotNumber; i++) {
-        ctx.fillStyle = 'black';
-        ctx.fillRect(currentPos.x, currentPos.y, slotSize.width, slotSize.height);
+      if (focus) {
+        ctx.fillRect(15, 25, 973, 553);
 
-        currentPos.x += slotSize.width + margin.x;
+        for (let i = 0; i < slotNumber - 1; i++) {
+          ctx.fillRect(currentPos.x, currentPos.y, slotSize.width, slotSize.height);
 
-        if (currentPos.x + slotSize.width > 1920) {
-          currentPos.x = firstSlotPosition.x;
-          currentPos.y += slotSize.height + margin.y;
+          currentPos.x += slotSize.width + margin.x;
+
+          if (currentPos.x + slotSize.width > 1920) {
+            currentPos.x = firstSlotPosition.x;
+            currentPos.y += slotSize.height + margin.y;
+          }
+        }
+      } else {
+        for (let i = 0; i < slotNumber; i++) {
+          ctx.fillRect(currentPos.x, currentPos.y, slotSize.width, slotSize.height);
+
+          currentPos.x += slotSize.width + margin.x;
+
+          if (currentPos.x + slotSize.width > 1920) {
+            currentPos.x = firstSlotPosition.x;
+            currentPos.y += slotSize.height + margin.y;
+          }
         }
       }
 
