@@ -1,10 +1,10 @@
-/** @jsxImportSource @emotion/react */
-import { Button, createTheme, ThemeProvider } from '@mui/material';
 import React from 'react';
+import { Button, createTheme, ThemeProvider } from '@mui/material';
+import { Check, Undo } from '@mui/icons-material';
 import { render } from '../../render';
 import { useReplicant } from '@nodecg/react-hooks';
-import { Timer } from '../../../types/schemas';
-import { formatTime } from '../../lib/timeformat';
+import { Player, Timer } from '../../../types/schemas';
+import { formatTime } from '../../lib/formattime';
 
 const theme = createTheme({
   palette: {
@@ -14,58 +14,106 @@ const theme = createTheme({
 
 const App: React.FC = () => {
   const [timer] = useReplicant<Timer>('timer');
+  const [player] = useReplicant<Player>('player');
+
   if (!timer) return;
-  const formattedTime = formatTime(timer?.raw);
   return (
     <ThemeProvider theme={theme}>
       <div
         style={{
           display: 'flex',
-          alignItems: 'center',
+          flexFlow: 'column',
           justifyContent: 'center',
-          width: 'fit-content',
-          backgroundColor: '#202020',
           color: '#FFFFFF',
-          padding: '30px',
           borderRadius: '5px',
           margin: '10px',
         }}>
-        <div style={{ display: 'flex', fontSize: '48px', fontFamily: 'monospace', fontWeight: 'bold' }}>
-          {formattedTime}
+        <div
+          style={{
+            position: 'relative',
+            textAlign: 'center',
+            fontSize: '72px',
+            fontFamily: 'monospace',
+            fontWeight: 'bold',
+          }}>
+          {formatTime(timer?.raw)}
+        </div>
+        <div style={{ position: 'relative', textAlign: 'center', marginTop: 10 }}>
+          <Button
+            variant="contained"
+            color="success"
+            size="large"
+            style={{ marginRight: 11 }}
+            onClick={() => nodecg.sendMessage('startTimer')}>
+            ▶
+          </Button>
+          <Button
+            variant="contained"
+            color="error"
+            size="large"
+            style={{ marginRight: 11 }}
+            onClick={() => nodecg.sendMessage('stopTimer')}>
+            ■
+          </Button>
+          <Button
+            variant="contained"
+            size="large"
+            style={{ marginRight: 11 }}
+            onClick={() => nodecg.sendMessage('resetTimer')}>
+            Reset
+          </Button>
+          <Button
+            variant="contained"
+            size="large"
+            color="info"
+            style={{ marginRight: 11 }}
+            onClick={() => nodecg.sendMessage('currentTimerState')}>
+            Log
+          </Button>
         </div>
       </div>
-
-      <Button
-        variant="contained"
-        color="success"
-        size="large"
-        style={{ marginRight: 11 }}
-        onClick={() => nodecg.sendMessage('startTimer')}>
-        ▶
-      </Button>
-      <Button
-        variant="contained"
-        color="error"
-        size="large"
-        style={{ marginRight: 11 }}
-        onClick={() => nodecg.sendMessage('stopTimer')}>
-        ■
-      </Button>
-      <Button
-        variant="contained"
-        size="large"
-        style={{ marginRight: 11 }}
-        onClick={() => nodecg.sendMessage('resetTimer')}>
-        Reset
-      </Button>
-      <Button
-        variant="contained"
-        size="large"
-        color="info"
-        style={{ marginRight: 11 }}
-        onClick={() => nodecg.sendMessage('currentTimerState')}>
-        Log
-      </Button>
+      <div>
+        <h2>プレイ中の走者</h2>
+        <ul>
+          {player?.map(
+            (value, index) =>
+              value && (
+                <li
+                  key={index}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                  }}>
+                  <div style={{ fontSize: '1.3rem' }}>
+                    プレイヤー {index + 1}: {value}
+                    <div>タイム: {formatTime(timer.results[index])}</div>
+                    <div style={{ margin: 10, padding: 10 }}>
+                      <Button
+                        variant="contained"
+                        color="success"
+                        size="large"
+                        startIcon={<Check />}
+                        onClick={() => {
+                          nodecg.sendMessage('playerTimeConfirm', index);
+                          console.log(timer.completeCount + '/' + (player.length - 1));
+                        }}></Button>
+                      <Button
+                        variant="contained"
+                        color="error"
+                        size="large"
+                        startIcon={<Undo />}
+                        onClick={() => {
+                          nodecg.sendMessage('playerTimeUndo', index);
+                          console.log(timer.completeCount + '/' + (player.length - 1));
+                        }}></Button>
+                    </div>
+                  </div>
+                </li>
+              ),
+          )}
+        </ul>
+      </div>
     </ThemeProvider>
   );
 };

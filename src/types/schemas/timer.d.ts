@@ -7,6 +7,9 @@
 
 export interface Timer {
 	raw: number;
-	finishTime?: string[];
+	pausedTime: number | null;
+	display: number;
+	results: (number | null)[];
+	completeCount: number;
 	state: 'Finished' | 'Running' | 'Stopped';
 }

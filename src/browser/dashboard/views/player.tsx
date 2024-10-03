@@ -171,20 +171,6 @@ export const App = () => {
           </ul>
         </div>
 
-        <div>
-          <h3>プレイ中の走者</h3>
-          <ul>
-            {player?.map(
-              (value, index) =>
-                value && (
-                  <li key={index}>
-                    プレイヤー {index + 1}: {value}
-                  </li>
-                ),
-            )}
-          </ul>
-        </div>
-
         <input type="file" accept=".csv" ref={fileInputRef} onChange={handleFileUpload} style={{ display: 'none' }} />
         <div>
           <Button

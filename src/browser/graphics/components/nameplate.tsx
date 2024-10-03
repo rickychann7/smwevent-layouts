@@ -1,8 +1,9 @@
 import { css } from '@emotion/react';
 import { globalStyle } from '../styles/global';
 import { useReplicant } from '@nodecg/react-hooks';
-import { Player } from '../../../types/schemas';
+import { Player, Timer } from '../../../types/schemas';
 import { ViewSettings } from '../../../types/viewsettings';
+import { formatTime } from '../../lib/formattime';
 
 export const Nameplate = (props: {
   index: number;
@@ -13,6 +14,7 @@ export const Nameplate = (props: {
   customFontSize?: number;
 }) => {
   const [player] = useReplicant<Player>('player');
+  const [timer] = useReplicant<Timer>('timer');
 
   const nameplateContainer = css`
     font-size: ${props.customFontSize ?? 2.2}em;
@@ -37,25 +39,23 @@ export const Nameplate = (props: {
     left: ${props.mainView?.x ?? props.position.x}px;
   `;
 
-  if (player != undefined) {
-    return (
-      <div css={[globalStyle, nameplateContainer]}>
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            paddingTop: 5,
-            paddingLeft: 20,
-            paddingRight: 10,
-            paddingBottom: 5,
-          }}>
-          <div>{player[props.index]}</div>
-          <div style={{ color: '#ffd036' }}>0:00:00</div>
-        </div>
+  if (!player || !timer) return;
+
+  return (
+    <div css={[globalStyle, nameplateContainer]}>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          paddingTop: 5,
+          paddingLeft: 20,
+          paddingRight: 10,
+          paddingBottom: 5,
+        }}>
+        <div>{player[props.index]}</div>
+        <div style={{ color: '#ffd036' }}>{formatTime(timer.results[props.index])}</div>
       </div>
-    );
-  } else {
-    return;
-  }
+    </div>
+  );
 };

@@ -6,11 +6,24 @@
       "type": "number",
       "default": 0
     },
-    "finishTime": {
+    "pausedTime": {
+      "anyOf": [{ "type": "number" }, { "type": "null" }],
+      "default": null
+    },
+    "display": {
+      "type": "number",
+      "default": 0
+    },
+    "results": {
       "type": "array",
       "items": {
-        "type": "string"
-      }
+        "anyOf": [{ "type": "number" }, { "type": "null" }]
+      },
+      "default": [0, 0, 0, 0, 0, 0, 0]
+    },
+    "completeCount": {
+      "type": "number",
+      "default": 0
     },
     "state": {
       "enum": ["Finished", "Running", "Stopped"],
@@ -19,5 +32,5 @@
     }
   },
   "additionalProperties": false,
-  "required": ["state", "raw"]
+  "required": ["completeCount", "display", "pausedTime", "raw", "results", "state"]
 }

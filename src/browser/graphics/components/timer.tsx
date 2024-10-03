@@ -1,7 +1,7 @@
 import { useReplicant } from '@nodecg/react-hooks';
 import { CSSProperties, useEffect, useState } from 'react';
 import { Timer } from '../../../types/schemas';
-import { formatTime } from '../../lib/timeformat';
+import { formatTime } from '../../lib/formattime';
 import '@fontsource-variable/rubik';
 
 export const MainTimer = (props: { style: CSSProperties }) => {
