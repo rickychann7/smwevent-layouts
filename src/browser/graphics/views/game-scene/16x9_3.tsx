@@ -39,7 +39,7 @@ const App: React.FC = () => {
             color: 'white',
             fontSize: 48,
             width: 340,
-            height: 700,
+            height: 701,
             position: 'absolute',
             top: 250,
             left: 25,

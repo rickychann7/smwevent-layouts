@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import { render } from '../../../render';
 import { ViewCanvas } from '../../components/view-canvas';
 import { Footer } from '../../components/footer/index';
@@ -35,7 +34,7 @@ const App: React.FC = () => {
             color: 'white',
             fontSize: 48,
             width: 1080,
-            height: 300,
+            height: 301,
             position: 'absolute',
             top: 650,
             left: 100,

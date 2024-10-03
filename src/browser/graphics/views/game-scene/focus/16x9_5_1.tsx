@@ -11,8 +11,8 @@ const viewSettings: ViewSettings = {
   player: 5,
   width: 440,
   height: 244,
-  initPos: { x: 1005, y: 25 },
-  margin: { x: 20, y: 65 },
+  initPos: { x: 1005, y: 35 },
+  margin: { x: 20, y: 70 },
 };
 
 const App: React.FC = () => {
@@ -38,7 +38,7 @@ const App: React.FC = () => {
             color: 'white',
             fontSize: 48,
             width: 1080,
-            height: 275,
+            height: 271,
             position: 'absolute',
             top: 680,
             left: 100,
@@ -50,7 +50,8 @@ const App: React.FC = () => {
           index={0}
           view={viewSettings}
           position={{ x: viewSettings.initPos.x, y: viewSettings.initPos.y + viewSettings.height }}
-          mainView={{ width: 973, height: 70, x: 15, y: 578 }}></Nameplate>
+          mainView={{ width: 973, height: 80, x: 15, y: 578 }}
+          customFontSize={2.5}></Nameplate>
         <Nameplate
           index={1}
           view={viewSettings}
@@ -59,7 +60,7 @@ const App: React.FC = () => {
             y: viewSettings.initPos.y + viewSettings.height,
           }}
           customHeight={55}
-          customFontSize={1.7}></Nameplate>
+          customFontSize={1.6}></Nameplate>
         <Nameplate
           index={2}
           view={viewSettings}
@@ -68,7 +69,7 @@ const App: React.FC = () => {
             y: viewSettings.initPos.y + viewSettings.height,
           }}
           customHeight={55}
-          customFontSize={1.7}></Nameplate>
+          customFontSize={1.6}></Nameplate>
         <Nameplate
           index={3}
           view={viewSettings}
@@ -77,7 +78,7 @@ const App: React.FC = () => {
             y: viewSettings.initPos.y + viewSettings.height * 2 + viewSettings.margin.y,
           }}
           customHeight={55}
-          customFontSize={1.7}></Nameplate>
+          customFontSize={1.6}></Nameplate>
         <Nameplate
           index={4}
           view={viewSettings}
@@ -86,7 +87,7 @@ const App: React.FC = () => {
             y: viewSettings.initPos.y + viewSettings.height * 2 + viewSettings.margin.y,
           }}
           customHeight={55}
-          customFontSize={1.7}></Nameplate>
+          customFontSize={1.6}></Nameplate>
         <MainTimer
           style={{
             position: 'absolute',

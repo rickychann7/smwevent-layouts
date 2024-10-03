@@ -28,7 +28,6 @@ export const MainTimer = (props: { style: CSSProperties }) => {
           color: timerColor,
           fontFamily: 'Rubik Variable',
           fontWeight: 600,
-          fontSize: '108px',
           borderTopColor: 'white',
           textAlign: 'left',
         }}>

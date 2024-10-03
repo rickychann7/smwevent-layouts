@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import { useReplicant } from '@nodecg/react-hooks';
 import { useEffect, useState } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';

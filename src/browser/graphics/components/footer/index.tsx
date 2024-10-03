@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import React from 'react';
 import { InformationFader } from './information';
 import { css } from '@emotion/react';

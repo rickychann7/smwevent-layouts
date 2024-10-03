@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 import { globalStyle } from '../styles/global';
 import { useReplicant } from '@nodecg/react-hooks';

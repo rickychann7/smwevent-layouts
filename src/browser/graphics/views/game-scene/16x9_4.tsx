@@ -12,7 +12,7 @@ const viewSettings: ViewSettings = {
   width: 715,
   height: 402,
   initPos: { x: 440, y: 25 },
-  margin: { x: 25, y: 95 },
+  margin: { x: 25, y: 100 },
 };
 
 const App: React.FC = () => {
