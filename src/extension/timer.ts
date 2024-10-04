@@ -75,11 +75,16 @@ export const timer = (nodecg: NodeCG.ServerAPI) => {
 
   nodecg.listenFor('playerTimeUndo', (data) => {
     timer.value.results[data] = null;
-    timer.value.completeCount -= 1;
+    if (timer.value.completeCount > 0) {
+      timer.value.completeCount -= 1;
+      console.log(typeof timer.value.completeCount);
+    }
     nodecg.log.info(timer.value.results[data]);
     if (player.value) {
-      if (timer.value.completeCount < player.value.length) {
-        startTimer();
+      if (timer.value.state === 'Finished' || 'Stopped') {
+        if (timer.value.completeCount != 0) {
+          startTimer();
+        }
       }
     }
   });
