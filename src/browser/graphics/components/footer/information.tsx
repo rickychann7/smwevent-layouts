@@ -3,13 +3,13 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { css } from '@emotion/react';
 
 const fadeContainerStyle = css`
+  font-family: 'M PLUS 1 Variable';
   position: absolute;
-  bottom: 0px;
+  bottom: 2px;
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
 `;
 
 const fadeStyles = css`

@@ -21,22 +21,6 @@
         "headerColor": "#525F78"
       },
       {
-        "name": "announce",
-        "title": "フッター情報",
-        "width": 3,
-        "file": "announce.html",
-        "workspace": "MAIN DASHBOARD",
-        "headerColor": "#525F78"
-      },
-      {
-        "name": "event",
-        "title": "カテゴリ＆イベント名管理",
-        "width": 3,
-        "file": "event.html",
-        "workspace": "MAIN DASHBOARD",
-        "headerColor": "#525F78"
-      },
-      {
         "name": "timer",
         "title": "タイマー",
         "width": 4,

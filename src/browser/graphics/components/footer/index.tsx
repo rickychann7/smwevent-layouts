@@ -1,4 +1,3 @@
-import React from 'react';
 import { InformationFader } from './information';
 import { css } from '@emotion/react';
 import { Clock } from './clock';
@@ -9,13 +8,10 @@ const footerStyle = css`
   height: 50px;
   bottom: 0px;
   left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   font-weight: 900;
   font-family: 'M PLUS 1 Variable';
-  font-size: 25px;
-  line-height: 35px;
+  font-size: 34px;
+  line-height: 45px;
   background-color: #202020;
   color: #d9d9d9;
   overflow: hidden;
@@ -23,23 +19,25 @@ const footerStyle = css`
 
 const leftStyle = css`
   margin-left: 20px;
+  padding-bottom: 47px;
 `;
 
 const rightStyle = css`
-  display: flex;
-  align-items: center;
   margin-right: 20px;
+  font-size: 38px;
 `;
 
-export const Footer: React.FC = () => {
+export const Footer = () => {
   return (
     <div css={footerStyle}>
-      <span css={leftStyle}>
-        <InformationFader />
-      </span>
-      <span css={rightStyle}>
-        <Clock></Clock>
-      </span>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div css={leftStyle}>
+          <InformationFader />
+        </div>
+        <div css={rightStyle}>
+          <Clock></Clock>
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import '@fontsource-variable/m-plus-1';
 
-export const Clock: React.FC = () => {
+export const Clock = () => {
   const [time, setTime] = useState<string>('');
 
   const formatTime = (date: Date): string => {
@@ -26,9 +27,5 @@ export const Clock: React.FC = () => {
     return () => clearInterval(timerId);
   }, []);
 
-  return (
-    <div>
-      <p>{time}</p>
-    </div>
-  );
+  return <div css={{ fontFamily: 'M PLUS 1 Variable' }}>{time}</div>;
 };
