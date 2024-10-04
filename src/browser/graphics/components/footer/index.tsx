@@ -1,7 +1,7 @@
 import React from 'react';
 import { InformationFader } from './information';
 import { css } from '@emotion/react';
-import { Upcoming } from './upcoming';
+import { Clock } from './clock';
 
 const footerStyle = css`
   position: absolute;
@@ -38,7 +38,7 @@ export const Footer: React.FC = () => {
         <InformationFader />
       </span>
       <span css={rightStyle}>
-        <Upcoming></Upcoming>
+        <Clock></Clock>
       </span>
     </div>
   );

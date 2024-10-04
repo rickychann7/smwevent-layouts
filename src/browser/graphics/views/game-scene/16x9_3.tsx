@@ -15,8 +15,6 @@ const viewSettings: ViewSettings = {
   margin: { x: 25, y: 100 },
 };
 
-const customPos = { x: viewSettings.width + viewSettings.initPos.x + viewSettings.margin.x, y: 0 };
-
 const App: React.FC = () => {
   return (
     <div>
@@ -29,7 +27,6 @@ const App: React.FC = () => {
             y: viewSettings.initPos.y,
           }}
           margin={{ x: viewSettings.margin.x, y: viewSettings.margin.y }}
-          customPos={{ x: customPos.x, y: customPos.y }}
         />
         <Box
           style={{
@@ -39,42 +36,42 @@ const App: React.FC = () => {
             color: 'white',
             fontSize: 48,
             width: 340,
-            height: 701,
+            height: 480,
             position: 'absolute',
-            top: 250,
+            top: 200,
             left: 25,
             backgroundColor: '#00000058',
             border: '4px solid #fff',
             borderRadius: 15,
           }}></Box>
-        <Logo style={{ position: 'absolute', transform: 'scale(0.48)', top: 25, left: -200 }}></Logo>
+        <Logo style={{ position: 'absolute', transform: 'scale(0.48)', top: 0, left: -200 }}></Logo>
         <Nameplate
           index={0}
           view={viewSettings}
-          position={{ x: customPos.x, y: viewSettings.initPos.y + viewSettings.height }}></Nameplate>
+          position={{ x: viewSettings.initPos.x, y: viewSettings.initPos.y + viewSettings.height }}></Nameplate>
         <Nameplate
           index={1}
           view={viewSettings}
           position={{
-            x: viewSettings.initPos.x,
-            y: viewSettings.initPos.y + viewSettings.height * 2 + viewSettings.margin.y,
+            x: viewSettings.initPos.x + viewSettings.width + viewSettings.margin.x,
+            y: viewSettings.initPos.y + viewSettings.height,
           }}></Nameplate>
         <Nameplate
           index={2}
           view={viewSettings}
           position={{
-            x: customPos.x,
+            x: viewSettings.initPos.x,
             y: viewSettings.initPos.y + viewSettings.height * 2 + viewSettings.margin.y,
           }}></Nameplate>
         <MainTimer
           style={{
             position: 'absolute',
-            top: 350,
-            left: 580,
-            width: 415,
+            top: 875,
+            left: 35,
+            width: 325,
             padding: 20,
             borderTop: 'solid',
-            fontSize: '108px',
+            fontSize: 84,
           }}
         />
         <div>
