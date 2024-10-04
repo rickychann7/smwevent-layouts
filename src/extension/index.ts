@@ -8,6 +8,6 @@ export default (nodecg: NodeCG.ServerAPI) => {
   nodecg.log.info('NodeCG server is started!');
   player(nodecg);
   announce(nodecg);
-  event(nodecg);
+  // event(nodecg);
   timer(nodecg);
 };
