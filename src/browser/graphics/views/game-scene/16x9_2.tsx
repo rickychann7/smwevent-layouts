@@ -6,6 +6,7 @@ import { Nameplate } from '../../components/nameplate/nameplate';
 import { ViewSettings } from '../../../../types/viewsettings';
 import { Logo } from '../../components/logo';
 import { Box } from '../../components/box';
+import { CategoryName } from '../../components/categoryName';
 import '@fontsource-variable/m-plus-1';
 
 const viewSettings: ViewSettings = {
@@ -64,6 +65,16 @@ const App: React.FC = () => {
             x: viewSettings.initPos.x + viewSettings.width + viewSettings.margin.x,
             y: viewSettings.initPos.y + viewSettings.height,
           }}></Nameplate>
+        <CategoryName
+          style={{
+            top: 730,
+            left: 981,
+            width: 900,
+            fontSize: 56,
+            padding: 20,
+            color: 'white',
+          }}
+        />
         <MainTimer
           style={{
             position: 'absolute',

@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { css } from '@emotion/react';
+import { useReplicant } from '@nodecg/react-hooks';
+import { Comment } from '../../../../types/schemas';
 
 const fadeContainerStyle = css`
   font-family: 'M PLUS 1 Variable';
@@ -30,21 +30,21 @@ const fadeStyles = css`
 `;
 
 export const InformationFader = () => {
-  const infoArray = ['FIRST TEST ARRAY CONTENT', 'SECOND TEST ARRAY CONTENT', 'THIRD TEST ARRAY CONTENT'];
-  const [infoIndex, setInfoIndex] = useState(0);
+  const [comment] = useReplicant<Comment>('comment');
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setInfoIndex((prevIndex) => (prevIndex + 1) % infoArray.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setInfoIndex((prevIndex) => (prevIndex + 1) % infoArray.length);
+  //   }, 4000);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   return (
-    <TransitionGroup>
-      <CSSTransition key={infoIndex} timeout={500} classNames="fade">
-        <div css={[fadeContainerStyle, fadeStyles]}>{infoArray[infoIndex]}</div>
-      </CSSTransition>
-    </TransitionGroup>
+    <div css={[fadeContainerStyle, fadeStyles]}>{comment}</div>
+    // <TransitionGroup>
+    //   <CSSTransition timeout={500} classNames="fade">
+    //     <div css={[fadeContainerStyle, fadeStyles]}>{comment}</div>
+    //   </CSSTransition>
+    // </TransitionGroup>
   );
 };

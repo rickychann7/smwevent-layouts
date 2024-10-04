@@ -21,6 +21,22 @@
         "headerColor": "#525F78"
       },
       {
+        "name": "category",
+        "title": "カテゴリ名",
+        "width": 2,
+        "file": "category.html",
+        "workspace": "MAIN DASHBOARD",
+        "headerColor": "#525F78"
+      },
+      {
+        "name": "comment",
+        "title": "コメント",
+        "width": 2,
+        "file": "comment.html",
+        "workspace": "MAIN DASHBOARD",
+        "headerColor": "#525F78"
+      },
+      {
         "name": "timer",
         "title": "タイマー",
         "width": 4,

@@ -6,6 +6,7 @@ import { ViewSettings } from '../../../../types/viewsettings';
 import { MainTimer } from '../../components/timer';
 import { Logo } from '../../components/logo';
 import { Box } from '../../components/box';
+import { CategoryName } from '../../components/categoryName';
 
 const viewSettings: ViewSettings = {
   player: 4,
@@ -70,6 +71,16 @@ const App: React.FC = () => {
             x: viewSettings.initPos.x + viewSettings.width + viewSettings.margin.x,
             y: viewSettings.initPos.y + viewSettings.height * 2 + viewSettings.margin.y,
           }}></Nameplate>
+        <CategoryName
+          style={{
+            top: 740,
+            left: 25,
+            width: 345,
+            fontSize: 56,
+            padding: 20,
+            color: 'white',
+          }}
+        />
         <MainTimer
           style={{
             position: 'absolute',

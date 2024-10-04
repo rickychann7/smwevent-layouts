@@ -7,6 +7,7 @@ import { MainTimer } from '../../../../components/timer';
 import { Logo } from '../../../../components/logo';
 import { Box } from '../../../../components/box';
 import bgBlack from '../../../../images/bg_black.png';
+import { CategoryName } from '../../../../components/categoryName';
 
 const viewSettings: ViewSettings = {
   player: 7,
@@ -31,7 +32,7 @@ const App: React.FC = () => {
           focus={true}
           customBgImg={bgBlack}
         />
-        <Logo style={{ position: 'absolute', transform: 'scale(0.5)', top: 795, left: 780, opacity: 0.6 }}></Logo>
+        <Logo style={{ position: 'absolute', transform: 'scale(0.5)', top: 795, left: 790, opacity: 0.6 }}></Logo>
         <Box
           style={{
             padding: 20,
@@ -108,10 +109,20 @@ const App: React.FC = () => {
           }}
           customHeight={55}
           customFontSize={1.6}></Nameplate>
+        <CategoryName
+          style={{
+            top: 730,
+            left: 1220,
+            width: 900,
+            fontSize: 56,
+            padding: 20,
+            color: 'white',
+          }}
+        />
         <MainTimer
           style={{
             position: 'absolute',
-            top: 875,
+            top: 855,
             left: 1500,
             width: 330,
             padding: 20,
