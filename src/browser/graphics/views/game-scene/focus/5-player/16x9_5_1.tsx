@@ -11,8 +11,8 @@ const viewSettings: ViewSettings = {
   player: 5,
   width: 440,
   height: 244,
-  initPos: { x: 1005, y: 35 },
-  margin: { x: 20, y: 70 },
+  initPos: { x: 20, y: 35 },
+  margin: { x: 10, y: 70 },
 };
 
 const App: React.FC = () => {
@@ -29,7 +29,7 @@ const App: React.FC = () => {
           margin={{ x: viewSettings.margin.x, y: viewSettings.margin.y }}
           focus={true}
         />
-        <Logo style={{ position: 'absolute', transform: 'scale(0.5)', top: 850, left: 1275 }}></Logo>
+        <Logo style={{ position: 'absolute', transform: 'scale(0.5)', top: 830, left: 1265, opacity: 0.7 }}></Logo>
         <Box
           style={{
             padding: 20,
@@ -37,11 +37,11 @@ const App: React.FC = () => {
             fontWeight: 900,
             color: 'white',
             fontSize: 48,
-            width: 1080,
+            width: 800,
             height: 271,
             position: 'absolute',
             top: 680,
-            left: 100,
+            left: 35,
             backgroundColor: '#00000058',
             border: '4px solid #fff',
             borderRadius: 15,
@@ -50,7 +50,7 @@ const App: React.FC = () => {
           index={0}
           view={viewSettings}
           position={{ x: viewSettings.initPos.x, y: viewSettings.initPos.y + viewSettings.height }}
-          mainView={{ width: 973, height: 80, x: 15, y: 578 }}
+          mainView={{ width: 973, height: 80, x: 925, y: 578 }}
           customFontSize={2.5}></Nameplate>
         <Nameplate
           index={1}
@@ -91,8 +91,8 @@ const App: React.FC = () => {
         <MainTimer
           style={{
             position: 'absolute',
-            top: 820,
-            left: 1330,
+            top: 850,
+            left: 970,
             width: 415,
             padding: 20,
             borderTop: 'solid',

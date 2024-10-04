@@ -5,10 +5,7 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface Timer {
-	raw: number;
-	pausedTime: number | null;
-	results: (number | null)[];
-	completeCount: number;
-	state: 'Finished' | 'Running' | 'Stopped';
-}
+/**
+ * スケジュール
+ */
+export type Schedule = string[];

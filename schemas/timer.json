@@ -10,10 +10,6 @@
       "anyOf": [{ "type": "number" }, { "type": "null" }],
       "default": null
     },
-    "display": {
-      "type": "number",
-      "default": 0
-    },
     "results": {
       "type": "array",
       "items": {
@@ -32,5 +28,5 @@
     }
   },
   "additionalProperties": false,
-  "required": ["completeCount", "display", "pausedTime", "raw", "results", "state"]
+  "required": ["completeCount", "pausedTime", "raw", "results", "state"]
 }

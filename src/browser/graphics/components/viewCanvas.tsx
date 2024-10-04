@@ -41,16 +41,21 @@ export const ViewCanvas: React.FC<ViewPortProps> = ({
       ctx.fillStyle = 'black';
 
       if (focus) {
-        ctx.fillRect(15, 25, 973, 553);
+        ctx.fillRect(925, 25, 973, 553);
 
         for (let i = 0; i < slotNumber - 1; i++) {
           ctx.fillRect(currentPos.x, currentPos.y, slotSize.width, slotSize.height);
 
           currentPos.x += slotSize.width + margin.x;
 
-          if (currentPos.x + slotSize.width > 1920) {
+          if (slotNumber >= 5) {
+            if (currentPos.x + slotSize.width > 1000) {
+              currentPos.x = firstSlotPosition.x;
+              currentPos.y += slotSize.height + margin.y;
+            }
+          } else if (currentPos.x + slotSize.width > 1920) {
             if (i > 2) {
-              currentPos.x = 1015;
+              currentPos.x = 15;
               currentPos.y = 695;
             } else {
               currentPos.x = firstSlotPosition.x;

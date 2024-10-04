@@ -8,7 +8,7 @@ import { Logo } from '../../../../components/logo';
 import { Box } from '../../../../components/box';
 
 const viewSettings: ViewSettings = {
-  player: 5,
+  player: 7,
   width: 440,
   height: 244,
   initPos: { x: 20, y: 35 },
@@ -29,7 +29,7 @@ const App: React.FC = () => {
           margin={{ x: viewSettings.margin.x, y: viewSettings.margin.y }}
           focus={true}
         />
-        <Logo style={{ position: 'absolute', transform: 'scale(0.5)', top: 830, left: 1265, opacity: 0.7 }}></Logo>
+        <Logo style={{ position: 'absolute', transform: 'scale(0.5)', top: 795, left: 780, opacity: 0.6 }}></Logo>
         <Box
           style={{
             padding: 20,
@@ -37,23 +37,23 @@ const App: React.FC = () => {
             fontWeight: 900,
             color: 'white',
             fontSize: 48,
-            width: 800,
-            height: 271,
+            width: 450,
+            height: 251,
             position: 'absolute',
-            top: 680,
-            left: 35,
+            top: 695,
+            left: 955,
             backgroundColor: '#00000058',
             border: '4px solid #fff',
             borderRadius: 15,
           }}></Box>
         <Nameplate
-          index={1}
+          index={0}
           view={viewSettings}
           position={{ x: viewSettings.initPos.x, y: viewSettings.initPos.y + viewSettings.height }}
           mainView={{ width: 973, height: 80, x: 925, y: 578 }}
           customFontSize={2.5}></Nameplate>
         <Nameplate
-          index={0}
+          index={1}
           view={viewSettings}
           position={{
             x: viewSettings.initPos.x,
@@ -88,15 +88,33 @@ const App: React.FC = () => {
           }}
           customHeight={55}
           customFontSize={1.6}></Nameplate>
+        <Nameplate
+          index={5}
+          view={viewSettings}
+          position={{
+            x: viewSettings.initPos.x,
+            y: viewSettings.initPos.y + viewSettings.height * 3 + viewSettings.margin.y * 2,
+          }}
+          customHeight={55}
+          customFontSize={1.6}></Nameplate>
+        <Nameplate
+          index={6}
+          view={viewSettings}
+          position={{
+            x: viewSettings.initPos.x + viewSettings.width + viewSettings.margin.x,
+            y: viewSettings.initPos.y + viewSettings.height * 3 + viewSettings.margin.y * 2,
+          }}
+          customHeight={55}
+          customFontSize={1.6}></Nameplate>
         <MainTimer
           style={{
             position: 'absolute',
-            top: 850,
-            left: 970,
-            width: 415,
+            top: 875,
+            left: 1500,
+            width: 330,
             padding: 20,
             borderTop: 'solid',
-            fontSize: '108px',
+            fontSize: '84px',
           }}
         />
         <div>
