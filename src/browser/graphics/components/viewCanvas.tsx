@@ -49,8 +49,13 @@ export const ViewCanvas: React.FC<ViewPortProps> = ({
           currentPos.x += slotSize.width + margin.x;
 
           if (currentPos.x + slotSize.width > 1920) {
-            currentPos.x = firstSlotPosition.x;
-            currentPos.y += slotSize.height + margin.y;
+            if (i > 2) {
+              currentPos.x = 1015;
+              currentPos.y = 695;
+            } else {
+              currentPos.x = firstSlotPosition.x;
+              currentPos.y += slotSize.height + margin.y;
+            }
           }
         }
       } else {

@@ -1,11 +1,11 @@
-import { render } from '../../../../render';
-import { ViewCanvas } from '../../../components/view-canvas';
-import { Footer } from '../../../components/footer/index';
-import { Nameplate } from '../../../components/nameplate';
-import { ViewSettings } from '../../../../../types/viewsettings';
-import { MainTimer } from '../../../components/timer';
-import { Logo } from '../../../components/logo';
-import { Box } from '../../../components/box';
+import { render } from '../../../../../render';
+import { ViewCanvas } from '../../../../components/viewCanvas';
+import { Footer } from '../../../../components/footer/index';
+import { Nameplate } from '../../../../components/nameplate';
+import { ViewSettings } from '../../../../../../types/viewsettings';
+import { MainTimer } from '../../../../components/timer';
+import { Logo } from '../../../../components/logo';
+import { Box } from '../../../../components/box';
 
 const viewSettings: ViewSettings = {
   player: 5,
@@ -47,13 +47,13 @@ const App: React.FC = () => {
             borderRadius: 15,
           }}></Box>
         <Nameplate
-          index={0}
+          index={1}
           view={viewSettings}
           position={{ x: viewSettings.initPos.x, y: viewSettings.initPos.y + viewSettings.height }}
           mainView={{ width: 973, height: 80, x: 15, y: 578 }}
           customFontSize={2.5}></Nameplate>
         <Nameplate
-          index={1}
+          index={0}
           view={viewSettings}
           position={{
             x: viewSettings.initPos.x,

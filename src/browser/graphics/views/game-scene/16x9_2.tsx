@@ -1,5 +1,5 @@
 import { render } from '../../../render';
-import { ViewCanvas } from '../../components/view-canvas';
+import { ViewCanvas } from '../../components/viewCanvas';
 import { Footer } from '../../components/footer/index';
 import { MainTimer } from '../../components/timer';
 import { Nameplate } from '../../components/nameplate';
