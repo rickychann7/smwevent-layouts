@@ -63,7 +63,7 @@ export const timer = (nodecg: NodeCG.ServerAPI) => {
     timer.value.completeCount += 1;
     nodecg.log.info('Player:', data, ' finished their run in', timer.value.results[data] + '!');
     if (player.value) {
-      if (timer.value.completeCount >= player.value.length - 1) {
+      if (timer.value.completeCount >= player.value.length) {
         stopTimer();
       }
     }
