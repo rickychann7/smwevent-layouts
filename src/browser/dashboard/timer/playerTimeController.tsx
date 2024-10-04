@@ -1,12 +1,13 @@
 import { useReplicant } from '@nodecg/react-hooks';
-import { formatTime } from '../../lib/formattime';
 import { Player, Timer } from '../../../types/schemas';
 import { Button } from '@mui/material';
 import { Check, Undo } from '@mui/icons-material';
+import { PlayerCompleteTimes } from './playerCompleteTimes';
 
 export const PlayerTimeController = () => {
   const [player] = useReplicant<Player>('player');
   const [timer] = useReplicant<Timer>('timer');
+
   if (!timer) return;
   return (
     <div>
@@ -32,6 +33,7 @@ export const PlayerTimeController = () => {
                         startIcon={<Check />}
                         onClick={() => {
                           nodecg.sendMessage('playerTimeConfirm', index);
+                          console.log('player index:', index);
                           console.log(timer.completeCount + '/' + player.length);
                         }}></Button>
                       <Button
@@ -40,12 +42,15 @@ export const PlayerTimeController = () => {
                         size="medium"
                         startIcon={<Undo />}
                         onClick={() => {
+                          console.log('player index:', typeof index);
                           nodecg.sendMessage('playerTimeUndo', index);
                           console.log(timer.completeCount + '/' + player.length);
                         }}></Button>
                     </div>
                   </div>
-                  タイム: {formatTime(timer.results[index])}{' '}
+                  <div style={{ fontSize: 26 }}>
+                    <PlayerCompleteTimes index={index} />
+                  </div>
                 </div>
               </div>
             ),

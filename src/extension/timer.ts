@@ -5,6 +5,8 @@ export const timer = (nodecg: NodeCG.ServerAPI) => {
   const timer = nodecg.Replicant('timer') as unknown as NodeCG.ServerReplicantWithSchemaDefault<Timer>;
   const player = nodecg.Replicant<Player>('player');
 
+  timer.value.results = [0, 0, 0, 0, 0, 0, 0];
+
   let startTime: Date | null = null;
   let elapsedTime: number = 0;
   let pausedTime: number = 0;
@@ -38,7 +40,7 @@ export const timer = (nodecg: NodeCG.ServerAPI) => {
     pausedTime = 0;
     timer.value.raw = elapsedTime;
     timer.value.state = 'Stopped';
-    timer.value.results = [];
+    timer.value.results = [0, 0, 0, 0, 0, 0, 0];
     timer.value.completeCount = 0;
   }
 
@@ -59,7 +61,7 @@ export const timer = (nodecg: NodeCG.ServerAPI) => {
   });
 
   nodecg.listenFor('playerTimeConfirm', (data) => {
-    timer.value.results[data] = elapsedTime;
+    timer.value.results[data] = timer.value.raw;
     timer.value.completeCount += 1;
     nodecg.log.info('Player:', data, ' finished their run in', timer.value.results[data] + '!');
     if (player.value) {
@@ -67,12 +69,12 @@ export const timer = (nodecg: NodeCG.ServerAPI) => {
         stopTimer();
       }
     }
-    console.log(timer.value.completeCount);
     nodecg.log.info(timer.value.completeCount, '/', player.value?.length);
+    nodecg.log.info(timer.value.results);
   });
 
   nodecg.listenFor('playerTimeUndo', (data) => {
-    timer.value.results[data] = null;
+    timer.value.results[data] = 0;
     if (player.value) {
       if (timer.value.completeCount > 0) {
         timer.value.completeCount -= 1;

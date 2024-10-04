@@ -13,9 +13,8 @@
     "results": {
       "type": "array",
       "items": {
-        "anyOf": [{ "type": "number" }, { "type": "null" }]
-      },
-      "default": [0, 0, 0, 0, 0, 0, 0]
+        "type": "number"
+      }
     },
     "completeCount": {
       "type": "number",

@@ -2,7 +2,7 @@ import { render } from '../../../render';
 import { ViewCanvas } from '../../components/viewCanvas';
 import { Footer } from '../../components/footer/index';
 import { MainTimer } from '../../components/timer';
-import { Nameplate } from '../../components/nameplate';
+import { Nameplate } from '../../components/nameplate/nameplate';
 import { ViewSettings } from '../../../../types/viewsettings';
 import { Logo } from '../../components/logo';
 import { Box } from '../../components/box';
@@ -33,11 +33,11 @@ const App: React.FC = () => {
             fontWeight: 900,
             color: 'white',
             fontSize: 48,
-            width: 1080,
+            width: 800,
             height: 301,
             position: 'absolute',
             top: 650,
-            left: 100,
+            left: 65,
             backgroundColor: '#00000058',
             border: '4px solid #fff',
             borderRadius: 15,
@@ -45,9 +45,10 @@ const App: React.FC = () => {
         <Logo
           style={{
             position: 'absolute',
-            transform: 'scale(0.5)',
-            top: 850,
-            left: 1275,
+            transform: 'scale(0.7)',
+            top: 780,
+            left: 190,
+            opacity: 0.6,
           }}></Logo>
         <Nameplate
           index={0}
@@ -66,9 +67,9 @@ const App: React.FC = () => {
         <MainTimer
           style={{
             position: 'absolute',
-            top: 820,
-            left: 1330,
-            width: 415,
+            top: 850,
+            left: 1130,
+            width: 600,
             padding: 20,
             borderTop: 'solid',
             fontSize: '108px',

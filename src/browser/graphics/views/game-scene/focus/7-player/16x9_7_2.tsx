@@ -1,7 +1,7 @@
 import { render } from '../../../../../render';
 import { ViewCanvas } from '../../../../components/viewCanvas';
 import { Footer } from '../../../../components/footer/index';
-import { Nameplate } from '../../../../components/nameplate';
+import { Nameplate } from '../../../../components/nameplate/nameplate';
 import { ViewSettings } from '../../../../../../types/viewsettings';
 import { MainTimer } from '../../../../components/timer';
 import { Logo } from '../../../../components/logo';

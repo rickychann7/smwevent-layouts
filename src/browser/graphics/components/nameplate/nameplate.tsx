@@ -1,9 +1,9 @@
 import { css } from '@emotion/react';
-import { globalStyle } from '../styles/global';
+import { globalStyle } from '../../styles/global';
 import { useReplicant } from '@nodecg/react-hooks';
-import { Player, Timer } from '../../../types/schemas';
-import { ViewSettings } from '../../../types/viewsettings';
-import { formatTime } from '../../lib/formattime';
+import { Player, Timer } from '../../../../types/schemas';
+import { ViewSettings } from '../../../../types/viewsettings';
+import { PlayerCompleteTimes } from './playerCompleteTime';
 
 export const Nameplate = (props: {
   index: number;
@@ -54,7 +54,9 @@ export const Nameplate = (props: {
           paddingBottom: 5,
         }}>
         <div>{player[props.index]}</div>
-        <div style={{ color: '#ffd036' }}>{formatTime(timer.results[props.index])}</div>
+        <div style={{ color: '#ffd036' }}>
+          <PlayerCompleteTimes index={props.index} />
+        </div>
       </div>
     </div>
   );
