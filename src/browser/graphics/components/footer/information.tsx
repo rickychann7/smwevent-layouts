@@ -1,7 +1,5 @@
-import { useReplicant } from '@nodecg/react-hooks';
 import { useEffect, useState } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { Announce } from '../../../../types/schemas';
 import { css } from '@emotion/react';
 
 const fadeContainerStyle = css`
@@ -20,39 +18,33 @@ const fadeStyles = css`
   }
   &.fade-enter-active {
     opacity: 1;
-    transition: opacity 500ms ease-in;
+    transition: opacity 1.5s;
   }
   &.fade-exit {
     opacity: 1;
   }
   &.fade-exit-active {
     opacity: 0;
-    transition: opacity 500ms ease-in;
+    transition: opacity 1.5s;
   }
 `;
 
 export const InformationFader = () => {
-  const [announce] = useReplicant<Announce>('announce');
+  const infoArray = ['FIRST TEST ARRAY CONTENT', 'SECOND TEST ARRAY CONTENT', 'THIRD TEST ARRAY CONTENT'];
   const [infoIndex, setInfoIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (announce) {
-        setInfoIndex((prevIndex) => (prevIndex + 1) % announce.length);
-      }
-    }, 0);
+      setInfoIndex((prevIndex) => (prevIndex + 1) % infoArray.length);
+    }, 4000);
     return () => clearInterval(interval);
   }, []);
 
-  if (announce) {
-    return (
-      <TransitionGroup>
-        <CSSTransition key={infoIndex} timeout={0} classNames="fade">
-          <div css={[fadeContainerStyle, fadeStyles]}>{announce}</div>
-        </CSSTransition>
-      </TransitionGroup>
-    );
-  } else {
-    return <p>No Data</p>;
-  }
+  return (
+    <TransitionGroup>
+      <CSSTransition key={infoIndex} timeout={500} classNames="fade">
+        <div css={[fadeContainerStyle, fadeStyles]}>{infoArray[infoIndex]}</div>
+      </CSSTransition>
+    </TransitionGroup>
+  );
 };

@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react';
-import logo from '../../../../tmp/logo.png';
+import logo from '../images/logo_beginner.png';
 
 export const Logo = (props: { style: CSSProperties }) => {
   return (

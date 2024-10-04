@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import bgImg from '../../../../tmp/bg.png';
+import bgImg from '../images/bg_green.png';
 
 interface ViewPortProps {
   slotNumber: number;
@@ -8,6 +8,7 @@ interface ViewPortProps {
   margin: { x: number; y: number };
   customPos?: { x: number | undefined; y: number | undefined };
   focus?: boolean;
+  customBgImg?: any;
 }
 
 export const ViewCanvas: React.FC<ViewPortProps> = ({
@@ -17,6 +18,7 @@ export const ViewCanvas: React.FC<ViewPortProps> = ({
   margin,
   customPos,
   focus,
+  customBgImg,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
@@ -28,7 +30,7 @@ export const ViewCanvas: React.FC<ViewPortProps> = ({
     if (!ctx) return;
 
     const bg = new Image();
-    bg.src = bgImg;
+    bg.src = customBgImg ?? bgImg;
 
     bg.onload = () => {
       let currentPos = {

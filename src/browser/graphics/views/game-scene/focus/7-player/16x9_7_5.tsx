@@ -6,6 +6,7 @@ import { ViewSettings } from '../../../../../../types/viewsettings';
 import { MainTimer } from '../../../../components/timer';
 import { Logo } from '../../../../components/logo';
 import { Box } from '../../../../components/box';
+import bgBlack from '../../../../images/bg_black.png';
 
 const viewSettings: ViewSettings = {
   player: 7,
@@ -28,6 +29,7 @@ const App: React.FC = () => {
           }}
           margin={{ x: viewSettings.margin.x, y: viewSettings.margin.y }}
           focus={true}
+          customBgImg={bgBlack}
         />
         <Logo style={{ position: 'absolute', transform: 'scale(0.5)', top: 795, left: 780, opacity: 0.6 }}></Logo>
         <Box
