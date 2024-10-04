@@ -5,10 +5,4 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface ExampleReplicant {
-	text: string;
-	/**
-	 * Age in years
-	 */
-	age: number;
-}
+export type Player = string[];

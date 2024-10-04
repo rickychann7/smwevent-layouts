@@ -6,23 +6,138 @@
     "dev:tsc": "tsc -b src/browser src/extension -w --preserveWatchOutput",
     "dev:vite": "vite",
     "dev:nodecg": "node --enable-source-maps ../..",
+    "build": "vite build",
     "generate-schema-types": "trash src/types/schemas && nodecg schema-types"
   },
   "nodecg": {
     "compatibleRange": "^2.0.0",
     "dashboardPanels": [
       {
-        "name": "example",
-        "title": "Example",
+        "name": "player",
+        "title": "プレイヤー名",
+        "width": 3,
+        "file": "player.html",
+        "workspace": "MAIN DASHBOARD",
+        "headerColor": "#525F78"
+      },
+      {
+        "name": "category",
+        "title": "カテゴリ名",
         "width": 2,
-        "file": "example.html",
-        "workspace": "Example",
+        "file": "category.html",
+        "workspace": "MAIN DASHBOARD",
+        "headerColor": "#525F78"
+      },
+      {
+        "name": "comment",
+        "title": "コメント",
+        "width": 2,
+        "file": "comment.html",
+        "workspace": "MAIN DASHBOARD",
+        "headerColor": "#525F78"
+      },
+      {
+        "name": "timer",
+        "title": "タイマー",
+        "width": 4,
+        "file": "timer.html",
+        "workspace": "MAIN DASHBOARD",
         "headerColor": "#525F78"
       }
     ],
     "graphics": [
       {
-        "file": "example.html",
+        "file": "generic.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "16x9_2.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "16x9_3.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "16x9_4.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "16x9_5_1.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "16x9_5_2.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "16x9_5_3.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "16x9_5_4.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "16x9_5_5.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "16x9_7_1.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "16x9_7_2.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "16x9_7_3.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "16x9_7_4.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "16x9_7_5.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "16x9_7_6.html",
+        "width": 1920,
+        "height": 1080,
+        "singleInstance": false
+      },
+      {
+        "file": "16x9_7_7.html",
         "width": 1920,
         "height": 1080,
         "singleInstance": false
@@ -32,10 +147,14 @@
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
+    "@fontsource-variable/m-plus-1": "^5.1.0",
+    "@fontsource-variable/rubik": "^5.1.0",
     "@mdi/react": "^1.6.1",
+    "@mui/icons-material": "^6.1.2",
     "@mui/material": "^6.1.1",
     "@nodecg/react-hooks": "^1.0.3",
     "@vitejs/plugin-react": "^4.3.1",
+    "papaparse": "^5.4.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "rollup-plugin-esbuild": "^6.1.1",
@@ -47,6 +166,7 @@
   },
   "devDependencies": {
     "@nodecg/types": "^2.1.12",
+    "@types/papaparse": "^5.3.14",
     "@types/react": "^18.3.8",
     "@types/react-dom": "^18.3.0",
     "vite-plugin-nodecg": "^2.1.0"

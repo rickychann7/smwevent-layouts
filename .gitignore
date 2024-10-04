@@ -2,6 +2,8 @@ node_modules
 /dashboard
 /extension
 /graphics
+shared
+tmp
 
 # tsbuildinfo
 *.tsbuildinfo
