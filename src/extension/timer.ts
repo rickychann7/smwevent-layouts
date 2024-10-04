@@ -16,7 +16,7 @@ export const timer = (nodecg: NodeCG.ServerAPI) => {
     startTime = new Date();
     timerInterval = setInterval(() => {
       elapsedTime = new Date().getTime() - startTime!.getTime() + pausedTime;
-      updateDisplay(elapsedTime);
+      timer.value.raw = elapsedTime;
     }, 1000);
     timer.value.state = 'Running';
   }
@@ -36,14 +36,10 @@ export const timer = (nodecg: NodeCG.ServerAPI) => {
     stopTimer();
     elapsedTime = 0;
     pausedTime = 0;
-    updateDisplay(elapsedTime);
+    timer.value.raw = elapsedTime;
     timer.value.state = 'Stopped';
     timer.value.results = [];
     timer.value.completeCount = 0;
-  }
-
-  function updateDisplay(time: number) {
-    timer.value.raw = time;
   }
 
   nodecg.listenFor('startTimer', () => {
@@ -67,22 +63,25 @@ export const timer = (nodecg: NodeCG.ServerAPI) => {
     timer.value.completeCount += 1;
     nodecg.log.info('Player:', data, ' finished their run in', timer.value.results[data] + '!');
     if (player.value) {
-      if (timer.value.completeCount >= player.value.length) {
+      if (timer.value.completeCount >= player.value.length - 1) {
         stopTimer();
       }
     }
+    console.log(timer.value.completeCount);
+    nodecg.log.info(timer.value.completeCount, '/', player.value?.length);
   });
 
   nodecg.listenFor('playerTimeUndo', (data) => {
     timer.value.results[data] = null;
-    if (timer.value.completeCount > 0) {
-      timer.value.completeCount -= 1;
-      console.log(typeof timer.value.completeCount);
-    }
-    nodecg.log.info(timer.value.results[data]);
     if (player.value) {
+      if (timer.value.completeCount > 0) {
+        timer.value.completeCount -= 1;
+        console.log(timer.value.completeCount);
+      }
+      nodecg.log.info(timer.value.results[data]);
+
       if (timer.value.state === 'Finished' || 'Stopped') {
-        if (timer.value.completeCount != 0) {
+        if (timer.value.completeCount < player.value.length) {
           startTimer();
         }
       }
