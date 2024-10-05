@@ -66,10 +66,11 @@ const App: React.FC = () => {
           }}></Nameplate>
         <CategoryName
           style={{
-            top: 740,
+            top: 750,
             left: 25,
             width: 345,
             fontSize: 56,
+            borderBottom: 'solid',
             padding: 20,
             color: 'white',
           }}
@@ -81,7 +82,6 @@ const App: React.FC = () => {
             left: 35,
             width: 325,
             padding: 20,
-            borderTop: 'solid',
             fontSize: 84,
           }}
         />

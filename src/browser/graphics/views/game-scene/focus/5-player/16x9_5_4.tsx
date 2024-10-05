@@ -99,10 +99,11 @@ const App: React.FC = () => {
         <CategoryName
           style={{
             top: 730,
-            left: 930,
-            width: 900,
+            left: 1080,
+            width: 600,
             fontSize: 56,
             padding: 20,
+            borderBottom: 'solid',
             color: 'white',
           }}
         />
@@ -110,10 +111,9 @@ const App: React.FC = () => {
           style={{
             position: 'absolute',
             top: 850,
-            left: 1130,
-            width: 500,
+            left: 1180,
+            width: 400,
             padding: 20,
-            borderTop: 'solid',
             fontSize: '108px',
           }}
         />

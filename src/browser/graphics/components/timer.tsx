@@ -29,7 +29,7 @@ export const MainTimer = (props: { style: CSSProperties }) => {
           fontFamily: 'Rubik Variable',
           fontWeight: 600,
           borderTopColor: 'white',
-          textAlign: 'center',
+          textAlign: 'left',
         }}>
         <div>{formatTime(timer.raw)}</div>
       </div>
