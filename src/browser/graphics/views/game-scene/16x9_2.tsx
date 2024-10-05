@@ -68,8 +68,8 @@ const App: React.FC = () => {
         <CategoryName
           style={{
             top: 730,
-            left: 1000,
-            width: 800,
+            left: 1030,
+            width: 700,
             fontSize: 56,
             padding: 20,
             borderBottom: 'solid',
