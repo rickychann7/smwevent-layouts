@@ -112,10 +112,11 @@ const App: React.FC = () => {
         <CategoryName
           style={{
             top: 730,
-            left: 1220,
-            width: 900,
+            left: 1465,
+            width: 400,
             fontSize: 56,
             padding: 20,
+            borderBottom: 'solid',
             color: 'white',
           }}
         />
@@ -126,7 +127,6 @@ const App: React.FC = () => {
             left: 1500,
             width: 330,
             padding: 20,
-            borderTop: 'solid',
             fontSize: '84px',
           }}
         />
