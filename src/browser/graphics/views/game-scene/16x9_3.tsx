@@ -79,7 +79,7 @@ const App: React.FC = () => {
           style={{
             position: 'absolute',
             top: 875,
-            left: 35,
+            left: 40,
             width: 325,
             padding: 20,
             fontSize: 84,
