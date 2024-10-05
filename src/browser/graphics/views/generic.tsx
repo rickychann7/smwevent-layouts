@@ -1,4 +1,4 @@
-import background from '../images/bg_green.png';
+import background from '../images/bg_blank.png';
 import { render } from '../../render';
 import { Footer } from '../components/footer/index';
 
