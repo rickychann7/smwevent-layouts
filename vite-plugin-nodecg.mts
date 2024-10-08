@@ -1,4 +1,4 @@
-// https://github.com/RTAinJapan/rtainjapan-layouts/blob/master/vite-plugin-nodecg.mts
+// Modified version of https://github.com/RTAinJapan/rtainjapan-layouts/blob/master/vite-plugin-nodecg.mts
 import path from 'path';
 import fs from 'fs/promises';
 import { ResolvedConfig, Manifest, ManifestChunk, Plugin } from 'vite';
@@ -116,7 +116,7 @@ export default async ({
 
     const manifest =
       config.command === 'build'
-        ? (JSON.parse(await fs.readFile(path.join(config.build.outDir, 'manifest.json'), 'utf-8')) as Manifest)
+        ? (JSON.parse(await fs.readFile(path.join(config.build.outDir, '.vite/manifest.json'), 'utf-8')) as Manifest)
         : undefined;
 
     const generateHtml = async (input: string, templateHtml: string, outputDir: string) => {
