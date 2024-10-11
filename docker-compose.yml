@@ -1,0 +1,26 @@
+services:
+  nodecg:
+    image: ghcr.io/nodecg/nodecg:2
+    user: root
+    command: sh -c "npm i --omit=dev && node --enable-source-maps ../.."
+    working_dir: /opt/nodecg/bundles/smwevent-layouts
+    init: true
+    ports:
+      - 9090:9090
+    volumes:
+      - nodecg_db:/opt/nodecg/db
+      - nodecg_assets:/opt/nodecg/assets
+      - node_modules:/opt/nodecg/bundles/smwevent-layouts/node_modules
+      - ./package.json:/opt/nodecg/bundles/smwevent-layouts/package.json:ro
+      - ./package-lock.json:/opt/nodecg/bundles/smwevent-layouts/package-lock.json
+      - ./dashboard:/opt/nodecg/bundles/smwevent-layouts/dashboard:ro
+      - ./extension:/opt/nodecg/bundles/smwevent-layouts/extension:ro
+      - ./graphics:/opt/nodecg/bundles/smwevent-layouts/graphics:ro
+      - ./schemas:/opt/nodecg/bundles/smwevent-layouts/schemas:ro
+      - ./src:/opt/nodecg/bundles/smwevent-layouts/src:ro
+      - ./shared:/opt/nodecg/bundles/smwevent-layouts/shared:ro
+
+volumes:
+  nodecg_db:
+  nodecg_assets:
+  node_modules:
