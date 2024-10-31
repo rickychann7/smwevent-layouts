@@ -1,11 +1,11 @@
-import type NodeCG from '@nodecg/types';
-import { player } from './player';
-import { timer } from './timer';
-import { category } from './category';
+import type NodeCG from "@nodecg/types";
+import {category} from "./category";
+import {player} from "./player";
+import {timer} from "./timer";
 
 export default (nodecg: NodeCG.ServerAPI) => {
-  nodecg.log.info('NodeCG server is started!');
-  player(nodecg);
-  timer(nodecg);
-  category(nodecg);
+	nodecg.log.info("NodeCG server is started!");
+	player(nodecg);
+	timer(nodecg);
+	category(nodecg);
 };

@@ -1,31 +1,31 @@
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "type": "object",
-  "properties": {
-    "raw": {
-      "type": "number",
-      "default": 0
-    },
-    "pausedTime": {
-      "anyOf": [{ "type": "number" }, { "type": "null" }],
-      "default": null
-    },
-    "results": {
-      "type": "array",
-      "items": {
-        "type": "number"
-      }
-    },
-    "completeCount": {
-      "type": "number",
-      "default": 0
-    },
-    "state": {
-      "enum": ["Finished", "Running", "Stopped"],
-      "type": "string",
-      "default": "Stopped"
-    }
-  },
-  "additionalProperties": false,
-  "required": ["completeCount", "pausedTime", "raw", "results", "state"]
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"type": "object",
+	"properties": {
+		"raw": {
+			"type": "number",
+			"default": 0
+		},
+		"pausedTime": {
+			"anyOf": [{"type": "number"}, {"type": "null"}],
+			"default": null
+		},
+		"results": {
+			"type": "array",
+			"items": {
+				"type": "number"
+			}
+		},
+		"completeCount": {
+			"type": "number",
+			"default": 0
+		},
+		"state": {
+			"enum": ["Finished", "Running", "Stopped"],
+			"type": "string",
+			"default": "Stopped"
+		}
+	},
+	"additionalProperties": false,
+	"required": ["completeCount", "pausedTime", "raw", "results", "state"]
 }
