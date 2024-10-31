@@ -1,9 +1,9 @@
-node_modules
+/node_modules
 /dashboard
 /extension
 /graphics
-shared
-tmp
+/shared
+/src/types/schemas
 
 # tsbuildinfo
 *.tsbuildinfo
