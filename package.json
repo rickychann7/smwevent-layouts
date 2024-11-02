@@ -30,15 +30,15 @@
 				"width": 3,
 				"file": "player.html",
 				"workspace": "MAIN DASHBOARD",
-				"headerColor": "#525F78"
+				"headerColor": "#00c0a0"
 			},
 			{
 				"name": "timer",
 				"title": "タイマー",
-				"width": 4,
+				"width": 3,
 				"file": "timer.html",
 				"workspace": "MAIN DASHBOARD",
-				"headerColor": "#525F78"
+				"headerColor": "#00c0a0"
 			}
 		],
 		"graphics": [
@@ -61,6 +61,7 @@
 		"@emotion/styled": "^11.13.0",
 		"@fontsource-variable/m-plus-1": "^5.1.0",
 		"@fontsource-variable/rubik": "^5.1.0",
+		"@fontsource/roboto": "^5.1.0",
 		"@mdi/react": "^1.6.1",
 		"@mui/icons-material": "^6.1.2",
 		"@mui/material": "^6.1.1",
@@ -82,6 +83,7 @@
 		"@types/papaparse": "^5.3.14",
 		"@types/react": "^18.3.8",
 		"@types/react-dom": "^18.3.0",
+		"prettier-plugin-organize-imports": "^4.1.0",
 		"vite-plugin-nodecg": "^2.1.0"
 	}
 }

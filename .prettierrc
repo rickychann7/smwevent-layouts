@@ -11,7 +11,7 @@
 	"htmlWhitespaceSensitivity": "css",
 	"jsxBracketSameLine": false,
 	"jsxSingleQuote": true,
-	"plugins": ["@trivago/prettier-plugin-sort-imports"],
+	"plugins": ["prettier-plugin-organize-imports"],
 	"importOrder": ["^@core/(.*)$", "^@server/(.*)$", "^@ui/(.*)$", "^[./]"],
 	"importOrderSortSpecifiers": true
 }
