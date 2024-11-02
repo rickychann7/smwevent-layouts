@@ -1,64 +1,88 @@
-import {Check, Undo} from "@mui/icons-material";
-import {Button} from "@mui/material";
+import {Check, Close} from "@mui/icons-material";
+import {IconButton, IconButtonProps} from "@mui/material";
 import {useReplicant} from "@nodecg/react-hooks";
+import {useEffect, useState} from "react";
 import {Player, Timer} from "../../../types/schemas";
-import {PlayerCompleteTimes} from "./playerCompleteTimes";
+import {formatTime} from "../../util/formattime";
+
+type ButtonProps = Pick<IconButtonProps, "onClick" | "color" | "disabled">;
+
+const FinishButton = (props: ButtonProps) => {
+	return (
+		<IconButton {...props}>
+			<Check />
+		</IconButton>
+	);
+};
+
+const UndoButton = (props: ButtonProps) => {
+	return (
+		<IconButton {...props}>
+			<Close />
+		</IconButton>
+	);
+};
+
+const PlayerCompleteTimes = (props: {playerIndex: number}) => {
+	const [timer] = useReplicant<Timer>("timer");
+	const [formattedCompleteTime, setFormattedCompleteTime] = useState("");
+	useEffect(() => {
+		if (!timer) return;
+		if (timer?.results[props.playerIndex] === 0) {
+			setFormattedCompleteTime("N/A");
+		} else {
+			setFormattedCompleteTime(formatTime(timer.results[props.playerIndex]));
+		}
+	});
+	return <div>: {formattedCompleteTime}</div>;
+};
 
 export const PlayerTimeController = () => {
 	const [player] = useReplicant<Player>("player");
 	const [timer] = useReplicant<Timer>("timer");
+	const [isPlayerFinished, setIsPlayerFinished] = useState<boolean>(false);
 
 	if (!timer) return;
 	return (
 		<div>
-			<div style={{fontSize: 32, fontWeight: 800}}>プレイ中の走者</div>
+			<div
+				style={{
+					fontSize: 24,
+					fontWeight: 900,
+				}}
+			>
+				プレイ中の走者
+			</div>
 			<div>
 				{player?.map(
-					(value, index) =>
-						value && (
+					(time, index) =>
+						time && (
 							<div
 								key={index}
 								style={{
-									display: "flex",
+									display: "inline-flex",
 									alignItems: "center",
 								}}
 							>
-								<div style={{fontSize: "1.5rem"}}>
-									<div style={{display: "flex", alignItems: "center"}}>
-										{value}
-										<div style={{position: "relative", margin: 10}}>
-											<Button
-												variant='contained'
-												color='success'
-												size='medium'
-												startIcon={<Check />}
-												onClick={() => {
-													nodecg.sendMessage("playerTimeConfirm", index);
-													console.log("player index:", index);
-													console.log(
-														timer.completeCount + "/" + player.length,
-													);
-												}}
-											></Button>
-											<Button
-												variant='contained'
-												color='error'
-												size='medium'
-												startIcon={<Undo />}
-												onClick={() => {
-													console.log("player index:", typeof index);
-													nodecg.sendMessage("playerTimeUndo", index);
-													console.log(
-														timer.completeCount + "/" + player.length,
-													);
-												}}
-											></Button>
-										</div>
-									</div>
-									<div style={{fontSize: 26}}>
-										<PlayerCompleteTimes index={index} />
-									</div>
-								</div>
+								{time}
+								<PlayerCompleteTimes playerIndex={index} />
+								<FinishButton
+									onClick={() => {
+										nodecg.sendMessage("playerTimeConfirm", index);
+										setIsPlayerFinished(true);
+									}}
+									color='success'
+									disabled={isPlayerFinished}
+								/>
+								<UndoButton
+									onClick={() => {
+										console.log("player index:", typeof index);
+
+										setIsPlayerFinished(false);
+									}}
+									color='error'
+									disabled={!isPlayerFinished}
+								/>
 							</div>
 						),
 				)}

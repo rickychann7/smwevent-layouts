@@ -1,61 +1,67 @@
-import {Pause, PlayArrow, RestartAlt, Terminal} from "@mui/icons-material";
-import {Button} from "@mui/material";
+import {Button, ButtonProps} from "@mui/material";
 import {useReplicant} from "@nodecg/react-hooks";
+import {useState} from "react";
 import {Timer} from "../../../types/schemas";
 import {formatTime} from "../../util/formattime";
 
+type ControlButtonProps = React.PropsWithChildren<
+	Pick<ButtonProps, "color" | "disabled" | "onClick">
+>;
+
+const ControlButton = (props: ControlButtonProps) => {
+	return <Button variant='contained' {...props}></Button>;
+};
+
 export const TimerController = () => {
 	const [timer] = useReplicant<Timer>("timer");
+	const [isTimerRunning, setIsTimerRunning] = useState<boolean>(false);
+
 	return (
-		<div
-			style={{
-				display: "flex",
-				flexFlow: "column",
-				justifyContent: "center",
-				borderRadius: "5px",
-				margin: "10px",
-			}}
-		>
+		<div>
 			<div
 				style={{
-					position: "relative",
 					textAlign: "center",
-					fontSize: "72px",
-					fontFamily: "FiraCode Nerd Font",
-					fontWeight: "bold",
+					fontSize: 48,
 				}}
 			>
 				{formatTime(timer?.raw)}
 			</div>
-			<div style={{position: "relative", textAlign: "center", marginTop: 10}}>
-				<Button
-					variant='contained'
+
+			<div
+				style={{
+					position: "relative",
+					display: "flex",
+					justifyContent: "center",
+				}}
+			>
+				<ControlButton
 					color='success'
-					size='large'
-					startIcon={<PlayArrow />}
-					onClick={() => nodecg.sendMessage("startTimer")}
-				/>
-				<Button
-					variant='contained'
+					disabled={isTimerRunning}
+					onClick={() => {
+						nodecg.sendMessage("startTimer");
+						setIsTimerRunning(true);
+					}}
+				>
+					Start
+				</ControlButton>
+				<ControlButton
 					color='error'
-					size='large'
-					startIcon={<Pause />}
-					onClick={() => nodecg.sendMessage("stopTimer")}
-				></Button>
-				<Button
-					variant='contained'
-					size='large'
-					startIcon={<RestartAlt />}
-					onClick={() => nodecg.sendMessage("resetTimer")}
-				></Button>
-				<Button
-					variant='contained'
-					size='large'
+					onClick={() => {
+						nodecg.sendMessage("stopTimer");
+						setIsTimerRunning(false);
+					}}
+				>
+					Stop
+				</ControlButton>
+				<ControlButton
 					color='info'
-					startIcon={<Terminal />}
-					style={{fontSize: 20}}
-					onClick={() => nodecg.sendMessage("currentTimerState")}
-				></Button>
+					onClick={() => {
+						nodecg.sendMessage("resetTimer");
+						setIsTimerRunning(false);
+					}}
+				>
+					Reset
+				</ControlButton>
 			</div>
 		</div>
 	);
