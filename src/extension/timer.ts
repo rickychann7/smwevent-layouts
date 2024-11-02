@@ -81,6 +81,7 @@ export const timer = (nodecg: NodeCG.ServerAPI) => {
 	});
 
 	nodecg.listenFor("playerTimeUndo", (data) => {
+		if (timer.value.raw === 0) return;
 		timer.value.results[data] = 0;
 		if (player.value) {
 			if (timer.value.completeCount > 0) {
